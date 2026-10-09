@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f8f3ec" />
+  <meta name="description" content="A gentle space for honest reflection, deeper understanding, and a conversation that brings us closer." />
+  <title>Beyond the Answers — A Conversation With You</title>
+  <style>
+    :root{--paper:#f8f3ec;--paper2:#fffdf9;--ink:#342629;--muted:#7b696b;--wine:#702f43;--wine2:#8c4558;--rose:#ead9d8;--line:#e7dcd3;--white:#fffdf9;--shadow:0 20px 60px rgba(73,39,45,.08)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+    button,input,textarea{font:inherit} button{cursor:pointer} .serif{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.035em} .shell{width:min(100% - 32px,760px);margin:0 auto}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:22px 0;color:var(--muted);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}.brand{display:flex;gap:10px;align-items:center;color:var(--wine);font-weight:700}.brand-mark{width:28px;height:28px;border:1px solid #c8a6aa;border-radius:50%;display:grid;place-items:center;font-family:Georgia,serif;font-size:17px;text-transform:none;letter-spacing:0}
+    .hero{min-height:calc(100svh - 90px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 0 80px;position:relative}.eyebrow{color:var(--wine2);font-size:.72rem;text-transform:uppercase;letter-spacing:.19em;font-weight:700}.hero h1{font-size:clamp(3.3rem,11vw,6.6rem);line-height:.98;max-width:700px;margin:24px 0 22px}.hero h1 em{color:var(--wine);font-weight:400}.hero p{max-width:510px;color:var(--muted);font-size:1.02rem;margin:0 auto 30px}.ornament{width:110px;height:1px;background:#cbaeb0;margin:28px auto;position:relative}.ornament:after{content:"✦";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--paper);padding:0 12px;color:var(--wine2);font-size:13px}.button{border:0;border-radius:999px;padding:14px 23px;background:var(--wine);color:white;transition:transform .2s,background .2s;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;box-shadow:0 7px 18px rgba(112,47,67,.13)}.button:hover{background:var(--wine2);transform:translateY(-1px)}.button.secondary{background:transparent;color:var(--wine);border:1px solid #cbaeb0;box-shadow:none}.button.ghost{background:transparent;color:var(--muted);box-shadow:none;padding:10px 12px}.tiny{font-size:.8rem;color:var(--muted)}
+    .note{margin:0 auto 28px;padding:15px 18px;max-width:490px;background:rgba(255,253,249,.65);border:1px solid var(--line);border-radius:14px;color:var(--muted);font-size:.87rem}.note strong{color:var(--ink)}
+    .app{padding:12px 0 64px;display:none}.app.active{display:block}.progress-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0 12px}.chapter-label{font-size:.74rem;color:var(--wine2);letter-spacing:.12em;text-transform:uppercase;font-weight:700}.progress-count{font-size:.8rem;color:var(--muted);white-space:nowrap}.progress-track{height:4px;background:#e8deda;border-radius:10px;overflow:hidden}.progress-fill{height:100%;width:0;background:var(--wine);transition:width .25s}
+    .question-card{margin:25px 0 16px;background:var(--paper2);border:1px solid var(--line);border-radius:24px;padding:clamp(22px,6vw,44px);box-shadow:var(--shadow)}.q-number{font-size:.75rem;color:var(--wine2);letter-spacing:.1em;text-transform:uppercase;font-weight:700}.question-card h2{font-size:clamp(1.9rem,6vw,3.05rem);line-height:1.14;margin:15px 0 16px}.q-hint{font-size:.9rem;color:var(--muted);margin:0 0 24px}.answer{width:100%;min-height:165px;resize:vertical;border:1px solid #dfd0c9;border-radius:14px;background:#fffefa;padding:16px;color:var(--ink);outline:none;line-height:1.6}.answer:focus{border-color:var(--wine2);box-shadow:0 0 0 3px rgba(112,47,67,.09)}.answer::placeholder{color:#b2a2a0}.skipline{display:flex;justify-content:space-between;gap:10px;margin-top:10px;align-items:center}.checkrow{display:flex;gap:9px;align-items:flex-start;color:var(--muted);font-size:.84rem;margin-top:20px}.checkrow input{accent-color:var(--wine);margin-top:5px}.navrow{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:20px 0}.navrow .button{min-width:125px}.reflection{padding:22px;background:#f0e5e1;border-radius:18px;margin:18px 0 24px}.reflection .eyebrow{font-size:.68rem}.reflection p{margin:8px 0 0;color:#5f4a4d}.chapter-intro{margin:32px 0 14px}.chapter-intro h2{font-size:2rem;margin:5px 0}.chapter-intro p{color:var(--muted);margin:0}.screen{display:none}.screen.active{display:block}.final-card{text-align:center;background:var(--paper2);border:1px solid var(--line);border-radius:24px;padding:clamp(26px,7vw,52px);box-shadow:var(--shadow);margin:28px 0}.final-card h2{font-size:clamp(2.4rem,8vw,4.4rem);line-height:1.05;margin:15px 0}.final-card p{color:var(--muted);max-width:510px;margin:12px auto}.footer{text-align:center;color:#9a8585;font-size:.76rem;padding:20px 0 32px}.footer a{color:var(--wine)}.modal-backdrop{position:fixed;inset:0;background:rgba(40,22,27,.35);display:none;place-items:center;padding:18px;z-index:5}.modal-backdrop.show{display:grid}.modal{max-width:430px;width:100%;background:var(--paper2);border-radius:20px;padding:25px;box-shadow:var(--shadow)}.modal h3{font-family:Georgia,serif;font-size:1.8rem;font-weight:400;margin:0 0 8px}.modal p{color:var(--muted);font-size:.9rem}.modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    @media(min-width:700px){.shell{width:min(100% - 48px,760px)}.hero{padding-top:50px}.app{padding-top:25px}.question-card{margin-top:30px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="shell topbar"><div class="brand"><span class="brand-mark">♡</span><span>Beyond the Answers</span></div><span>A space for us</span></header>
+  <main class="shell">
+    <section class="hero screen active" id="welcome">
+      <div class="eyebrow">A little invitation, from me to you</div>
+      <h1 class="serif">The things<br/>we should <em>talk about.</em></h1>
+      <div class="ornament"></div>
+      <p>I made this little space because what we have matters to me. I want to keep learning you, understanding you, and being intentional about the relationship we are building.</p>
+      <div class="note"><strong>This isn't a test, and there are no perfect answers.</strong><br/>Take your time. Skip anything you aren't ready to answer. The point is to help us have a more honest, thoughtful conversation.</div>
+      <button class="button" id="beginBtn">Begin our conversation <span aria-hidden="true">→</span></button>
+      <p class="tiny" style="margin-top:17px">Your answers stay on this device in this browser. They are not sent to me or uploaded anywhere.</p>
+    </section>
+
+    <section class="app screen" id="journey" aria-live="polite">
+      <div class="progress-head"><div><div class="chapter-label" id="chapterLabel">Chapter 1 · Choice</div></div><div class="progress-count" id="progressCount">Question 1 of 24</div></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="chapter-intro"><h2 class="serif" id="chapterTitle">Choice & certainty</h2><p id="chapterDesc">Looking back honestly at the choice that brought us here.</p></div>
+      <article class="question-card">
+        <div class="q-number" id="questionNumber">QUESTION 01</div>
+        <h2 class="serif" id="questionText">Knowing what you know now about me and about us, would you still have said yes to me?</h2>
+        <p class="q-hint" id="questionHint">There is no right answer. Just be honest with yourself first.</p>
+        <textarea class="answer" id="answerInput" placeholder="Take your time. Write what feels true…" aria-label="Your reflection"></textarea>
+        <div class="skipline"><span class="tiny" id="savedStatus">Saved on this device</span><button class="button ghost" id="clearAnswerBtn" type="button">Clear answer</button></div>
+        <label class="checkrow"><input type="checkbox" id="discussLater"/><span>I'd rather leave this for us to talk about together.</span></label>
+      </article>
+      <div class="reflection"><div class="eyebrow">A gentle reminder</div><p id="reflectionText">Understanding each other matters more than finding the perfect words.</p></div>
+      <div class="navrow"><button class="button secondary" id="prevBtn">← Back</button><button class="button" id="nextBtn">Next question →</button></div>
+      <div style="text-align:center"><button class="button ghost" id="finishEarlyBtn">Pause and finish later</button></div>
+    </section>
+
+    <section class="screen" id="ending">
+      <div class="final-card">
+        <div class="eyebrow">Thank you for showing up</div>
+        <h2 class="serif">Beyond the answers,<br/><em style="color:var(--wine)">there is us.</em></h2>
+        <div class="ornament"></div>
+        <p>Thank you for taking the time to reflect. You don't have to have everything figured out, and you don't have to carry every answer alone.</p>
+        <p>When you're ready, I'd love for us to sit together, listen without rushing to defend ourselves, and talk about what we are learning.</p>
+        <p class="serif" style="font-size:1.35rem;color:var(--wine);margin-top:25px">With love, and with intention. ♡</p>
+        <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px"><button class="button" id="exportBtn">Download my reflections</button><button class="button secondary" id="reviewBtn">Review answers</button></div>
+        <p class="tiny" style="margin-top:18px">Your reflections remain on this device unless you choose to download them. Nothing is automatically shared.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer">Made with care, for a conversation that matters. <span aria-hidden="true">♡</span><br/>Your reflections are stored locally in this browser only.</footer>
+
+  <div class="modal-backdrop" id="pauseModal" role="dialog" aria-modal="true" aria-labelledby="pauseTitle"><div class="modal"><h3 id="pauseTitle">You can come back to this.</h3><p>Your progress is saved in this browser on this device. Close the page whenever you need; when you return using the same browser and device, you can continue where you left off.</p><div class="modal-actions"><button class="button" id="keepGoingBtn">Keep reflecting</button><button class="button secondary" id="goHomeBtn">Return to welcome</button></div></div></div>
+  <script>
+    const chapters = [
+      {title:'Choice & certainty',desc:'Looking back honestly at the choice that brought us here.',reflection:'We can honour the choice we made while still being honest about what we have learned.',questions:[
+        'Knowing what you know now about me and about us, would you still have said yes to me?',
+        'If you could go back to the beginning of our relationship with the knowledge you have now, what would you do differently?',
+        'Have there been moments when you questioned your decision to be with me? If yes, what brought you to that point?',
+        'If you met me for the first time today, as the person I am now, would I still be someone you would want to build a future with?'
+      ]},
+      {title:'Happiness & fulfilment',desc:'Making room for the truth about how life and love feel right now.',reflection:'You are allowed to appreciate what you have and still be honest about what you need.',questions:[
+        'If you had most of the things you have always wanted financially and personally, would you honestly say you are happy with your life right now?',
+        'Do you feel genuinely fulfilled in this relationship, or are there parts of you that still feel unfulfilled?',
+        'Are you happy with the person you are becoming while being with me?',
+        'Do you feel our relationship adds to your happiness, or are there times when it feels like something you have to manage?'
+      ]},
+      {title:'Love & understanding',desc:'Exploring how we give love, receive it, and make room for each other.',reflection:'Being loved and feeling understood are both important. We can keep learning how to offer them to each other.',questions:[
+        'Do you feel completely comfortable being yourself around me, even when you are having a difficult day or showing a less polished side of yourself?',
+        'Do you feel loved by me in the way you need to be loved, or do you sometimes feel I love you in the way that makes sense to me?',
+        'Is there anything you have wanted to tell me but held back because you were afraid of how I might react?',
+        'What is one thing you wish I understood about you without you having to explain it repeatedly?'
+      ]},
+      {title:'Sacrifice & growth',desc:'Naming the compromises, lessons, and difficult moments with care.',reflection:'Honesty about pain or unmet needs is not an attack. It can be the beginning of understanding.',questions:[
+        'Do you feel that the sacrifices we have both made for this relationship have been worth it?',
+        'Is there any part of yourself you feel you have had to suppress or sacrifice to make us work?',
+        'Do you think our relationship has helped you become the person you want to be, or has it slowed down any part of your growth?',
+        'Is there any unresolved hurt between us that you think we have moved past without actually healing from it?'
+      ]},
+      {title:'Compatibility & our future',desc:'Looking at the life we are building and whether it makes room for both of us.',reflection:'A shared future works best when both people have room to grow, dream, and be heard.',questions:[
+        'Do you think we are genuinely compatible, or do you think our love is what keeps us together despite our differences?',
+        'Are we building a future that both of us genuinely want, or are we sometimes following one person’s vision more than the other’s?',
+        'If our circumstances remained exactly as they are today for the next three years, would you still feel content with the direction of our relationship?',
+        'What do you think we need to address now so that we do not become unhappy with each other in the future?'
+      ]},
+      {title:'The honest conversation',desc:'The questions that may be difficult to ask, but can help us understand each other.',reflection:'You do not have to solve everything today. Listening with openness is already meaningful progress.',questions:[
+        'Do you ever feel that you love me but are not entirely happy with the relationship we have built?',
+        'Is there a need you have repeatedly tried to communicate to me that you feel I still have not understood or met?',
+        'What is one thing about our relationship that you love deeply, and one thing that genuinely worries you?',
+        'Knowing everything you know today, do you feel we are building the kind of future you genuinely want? What would you like us to do differently?'
+      ]}
+    ];
+    const flat = chapters.flatMap((c,ci)=>c.questions.map((q,qi)=>({q,ci,qi}))); const STORAGE='beyondAnswers.v1';
+    let state={index:0,answers:{},later:{},started:false};
+    try{const old=JSON.parse(localStorage.getItem(STORAGE)||'null');if(old&&typeof old==='object')state={...state,...old};}catch(e){}
+    const $=id=>document.getElementById(id); const screens=['welcome','journey','ending'];
+    function persist(){try{localStorage.setItem(STORAGE,JSON.stringify(state));$('savedStatus').textContent='Saved on this device';}catch(e){$('savedStatus').textContent='Could not save in this browser';}}
+    function show(id){screens.forEach(s=>$(s).classList.toggle('active',s===id));window.scrollTo({top:0,behavior:'smooth'});}
+    function render(){const item=flat[state.index];if(!item)return finish();const ch=chapters[item.ci];$('chapterLabel').textContent=`Chapter ${item.ci+1} · ${ch.title}`;$('chapterTitle').textContent=ch.title;$('chapterDesc').textContent=ch.desc;$('questionNumber').textContent=`Question ${String(state.index+1).padStart(2,'0')}`;$('questionText').textContent=item.q;$('questionHint').textContent='There is no right answer. Take a breath, and write what feels true.';$('reflectionText').textContent=ch.reflection;$('progressCount').textContent=`Question ${state.index+1} of ${flat.length}`;$('progressFill').style.width=`${((state.index+1)/flat.length)*100}%`;$('answerInput').value=state.answers[state.index]||'';$('discussLater').checked=!!state.later[state.index];$('prevBtn').disabled=state.index===0;$('prevBtn').style.opacity=state.index===0?'.45':'1';$('nextBtn').textContent=state.index===flat.length-1?'Finish reflection ✓':'Next question →';show('journey');}
+    function finish(){persist();show('ending');}
+    $('beginBtn').addEventListener('click',()=>{state.started=true;persist();render()});$('answerInput').addEventListener('input',e=>{state.answers[state.index]=e.target.value;persist()});$('discussLater').addEventListener('change',e=>{state.later[state.index]=e.target.checked;persist()});$('clearAnswerBtn').addEventListener('click',()=>{state.answers[state.index]='';$('answerInput').value='';persist();$('answerInput').focus()});$('prevBtn').addEventListener('click',()=>{if(state.index>0){state.index--;persist();render()}});$('nextBtn').addEventListener('click',()=>{if(state.index<flat.length-1){state.index++;persist();render()}else finish()});$('finishEarlyBtn').addEventListener('click',()=>$('pauseModal').classList.add('show'));$('keepGoingBtn').addEventListener('click',()=>$('pauseModal').classList.remove('show'));$('goHomeBtn').addEventListener('click',()=>{$('pauseModal').classList.remove('show');show('welcome')});$('reviewBtn').addEventListener('click',()=>{state.index=0;persist();render()});
+    $('exportBtn').addEventListener('click',()=>{let out='BEYOND THE ANSWERS\nA private reflection for a conversation that matters\n\nThese notes are yours. Share them only if you choose to.\n\n';chapters.forEach((ch,ci)=>{out+=`\n${ci+1}. ${ch.title.toUpperCase()}\n`;ch.questions.forEach((q,qi)=>{const idx=flat.findIndex(x=>x.ci===ci&&x.qi===qi);out+=`\n${q}\n`;if(state.later[idx])out+='[Marked to discuss together]\n';out+=(state.answers[idx]||'[No written response]')+'\n';});});const blob=new Blob([out],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='beyond-the-answers-reflections.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)});
+    // Resume gently if a reflection was previously started on this device.
+    if(state.started){$('beginBtn').textContent='Continue our conversation →';$('beginBtn').addEventListener('click',()=>render());}
+  </script>
+</body>
+</html>

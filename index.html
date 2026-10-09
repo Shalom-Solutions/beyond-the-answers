@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f8f3ec" />
   <meta name="description" content="A gentle space for honest reflection, deeper understanding, and a conversation that brings us closer." />
-  <title>Beyond the Answers — A Conversation With You (Ayotioluwafunmi)</title>
+  <title>For Ayotioluwafunmi — Beyond the Answers</title>
   <style>
     :root{--paper:#f8f3ec;--paper2:#fffdf9;--ink:#342629;--muted:#7b696b;--wine:#702f43;--wine2:#8c4558;--rose:#ead9d8;--line:#e7dcd3;--white:#fffdf9;--shadow:0 20px 60px rgba(73,39,45,.08)}
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
@@ -23,10 +23,10 @@
   <header class="shell topbar"><div class="brand"><span class="brand-mark">♡</span><span>Beyond the Answers</span></div><span>A space for us</span></header>
   <main class="shell">
     <section class="hero screen active" id="welcome">
-      <div class="eyebrow">A little invitation, from me to you</div>
-      <h1 class="serif">The things<br/>we should <em>talk about.</em></h1>
+      <div class="eyebrow">A little invitation, especially for you</div>
+      <h1 class="serif">Ayotioluwafunmi,<br/>the things we should <em>talk about.</em></h1>
       <div class="ornament"></div>
-      <p>I made this little space because what we have matters to me. I want to keep learning you, understanding you, and being intentional about the relationship we are building.</p>
+      <p>Ayotioluwafunmi, I made this little space because you matter to me, and what we have matters to me. I want to keep learning you, understanding you, and being intentional about the relationship we are building.</p>
       <div class="note"><strong>This isn't a test, and there are no perfect answers.</strong><br/>Take your time. Skip anything you aren't ready to answer. The point is to help us have a more honest, thoughtful conversation.</div>
       <button class="button" id="beginBtn">Begin our conversation <span aria-hidden="true">→</span></button>
       <p class="tiny" style="margin-top:17px">Your answers stay on this device in this browser. They are not sent to me or uploaded anywhere.</p>
@@ -62,7 +62,7 @@
       </div>
     </section>
   </main>
-  <footer class="shell footer">Made with care, for a conversation that matters. <span aria-hidden="true">♡</span><br/>Your reflections are stored locally in this browser only.</footer>
+  <footer class="shell footer">Made with care, especially for Ayotioluwafunmi. <span aria-hidden="true">♡</span><br/>Your reflections are stored locally in this browser only.</footer>
 
   <div class="modal-backdrop" id="pauseModal" role="dialog" aria-modal="true" aria-labelledby="pauseTitle"><div class="modal"><h3 id="pauseTitle">You can come back to this.</h3><p>Your progress is saved in this browser on this device. Close the page whenever you need; when you return using the same browser and device, you can continue where you left off.</p><div class="modal-actions"><button class="button" id="keepGoingBtn">Keep reflecting</button><button class="button secondary" id="goHomeBtn">Return to welcome</button></div></div></div>
   <script>
@@ -113,7 +113,7 @@
     function render(){const item=flat[state.index];if(!item)return finish();const ch=chapters[item.ci];$('chapterLabel').textContent=`Chapter ${item.ci+1} · ${ch.title}`;$('chapterTitle').textContent=ch.title;$('chapterDesc').textContent=ch.desc;$('questionNumber').textContent=`Question ${String(state.index+1).padStart(2,'0')}`;$('questionText').textContent=item.q;$('questionHint').textContent='There is no right answer. Take a breath, and write what feels true.';$('reflectionText').textContent=ch.reflection;$('progressCount').textContent=`Question ${state.index+1} of ${flat.length}`;$('progressFill').style.width=`${((state.index+1)/flat.length)*100}%`;$('answerInput').value=state.answers[state.index]||'';$('discussLater').checked=!!state.later[state.index];$('prevBtn').disabled=state.index===0;$('prevBtn').style.opacity=state.index===0?'.45':'1';$('nextBtn').textContent=state.index===flat.length-1?'Finish reflection ✓':'Next question →';show('journey');}
     function finish(){persist();show('ending');}
     $('beginBtn').addEventListener('click',()=>{state.started=true;persist();render()});$('answerInput').addEventListener('input',e=>{state.answers[state.index]=e.target.value;persist()});$('discussLater').addEventListener('change',e=>{state.later[state.index]=e.target.checked;persist()});$('clearAnswerBtn').addEventListener('click',()=>{state.answers[state.index]='';$('answerInput').value='';persist();$('answerInput').focus()});$('prevBtn').addEventListener('click',()=>{if(state.index>0){state.index--;persist();render()}});$('nextBtn').addEventListener('click',()=>{if(state.index<flat.length-1){state.index++;persist();render()}else finish()});$('finishEarlyBtn').addEventListener('click',()=>$('pauseModal').classList.add('show'));$('keepGoingBtn').addEventListener('click',()=>$('pauseModal').classList.remove('show'));$('goHomeBtn').addEventListener('click',()=>{$('pauseModal').classList.remove('show');show('welcome')});$('reviewBtn').addEventListener('click',()=>{state.index=0;persist();render()});
-    $('exportBtn').addEventListener('click',()=>{let out='BEYOND THE ANSWERS\nA private reflection for a conversation that matters\n\nThese notes are yours. Share them only if you choose to.\n\n';chapters.forEach((ch,ci)=>{out+=`\n${ci+1}. ${ch.title.toUpperCase()}\n`;ch.questions.forEach((q,qi)=>{const idx=flat.findIndex(x=>x.ci===ci&&x.qi===qi);out+=`\n${q}\n`;if(state.later[idx])out+='[Marked to discuss together]\n';out+=(state.answers[idx]||'[No written response]')+'\n';});});const blob=new Blob([out],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='beyond-the-answers-reflections.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)});
+    $('exportBtn').addEventListener('click',()=>{let out='BEYOND THE ANSWERS\nA private reflection for Ayotioluwafunmi\n\nThese notes are yours. Share them only if you choose to.\n\n';chapters.forEach((ch,ci)=>{out+=`\n${ci+1}. ${ch.title.toUpperCase()}\n`;ch.questions.forEach((q,qi)=>{const idx=flat.findIndex(x=>x.ci===ci&&x.qi===qi);out+=`\n${q}\n`;if(state.later[idx])out+='[Marked to discuss together]\n';out+=(state.answers[idx]||'[No written response]')+'\n';});});const blob=new Blob([out],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='beyond-the-answers-reflections.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)});
     // Resume gently if a reflection was previously started on this device.
     if(state.started){$('beginBtn').textContent='Continue our conversation →';$('beginBtn').addEventListener('click',()=>render());}
   </script>
